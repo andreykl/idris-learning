@@ -66,7 +66,6 @@ echo = do
 serverLoop : (c : proc) -> Protocol [c, s] () -> Protocol [c, s] ()
 serverLoop c {s} proto = Init c s (do proto; Rec (serverLoop c proto))
 
-
 mkProcess : (p : proc) -> (proto : Protocol ps a) -> 
             {auto prf : Elem p ps} -> (a -> Actions) -> Actions
 mkProcess p (Init c s proto) k with (prim__syntactic_eq _ _ p s)
