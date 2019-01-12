@@ -3,6 +3,7 @@ module Protocol
 import Data.List
 
 %default total
+%access public export
 
 data Protocol : List proc -> Type -> Type where
   Initiate : (c, s : proc) -> Protocol [c, s] () ->
